@@ -215,16 +215,20 @@ class Floating_NextPrev {
      */
     public function view() {
         if ( is_single() ) {
-            $settings = get_option( $this->get_settings_name() );
+            $settings_name = $this->get_settings_name();
+            $settings = get_option( $settings_name );
             $slug = $this->plugin_slug;
             $textdomain = $this->plugin_slug;
+            $in_same_cat = apply_filters( $settings_name . '_in_same_cat', false );
+            $excluded_categories = apply_filters( $settings_name . '_excluded_categories', '' );
+
         ?>
             <div id="<?php echo $slug; ?>" class="style-<?php echo sanitize_text_field( $settings['model'] ); ?>">
                 <div class="<?php echo $slug; ?>-prev <?php echo $slug; ?>-nav">
-                    <?php previous_post_link( '%link', '<div class="' . $slug . '-arrow-left"></div><div class="' . $slug . '-content"><strong>' . __( 'Previous', $textdomain ) . '</strong><span>%title</span></div>' ); ?>
+                    <?php previous_post_link( '%link', '<div class="' . $slug . '-arrow-left"></div><div class="' . $slug . '-content"><strong>' . __( 'Previous', $textdomain ) . '</strong><span>%title</span></div>', $in_same_cat, $excluded_categories ); ?>
                 </div>
                 <div class="<?php echo $slug; ?>-next <?php echo $slug; ?>-nav">
-                    <?php next_post_link( '%link', '<div class="' . $slug . '-arrow-right"></div><div class="' . $slug . '-content"><strong>' . __( 'Next', $textdomain ) . '</strong><span>%title</span></div>'); ?>
+                    <?php next_post_link( '%link', '<div class="' . $slug . '-arrow-right"></div><div class="' . $slug . '-content"><strong>' . __( 'Next', $textdomain ) . '</strong><span>%title</span></div>', $in_same_cat, $excluded_categories ); ?>
                 </div>
             </div>
         <?php
