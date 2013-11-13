@@ -176,50 +176,6 @@ class Floating_NextPrev_Admin {
                         $value['menu']
                     );
                     break;
-                case 'text':
-                    add_settings_field(
-                        $key,
-                        $value['title'],
-                        array( $this, 'text_element_callback' ),
-                        $value['menu'],
-                        $value['section'],
-                        array(
-                            'menu' => $value['menu'],
-                            'id' => $key,
-                            'class' => 'regular-text',
-                            'description' => isset( $value['description'] ) ? $value['description'] : ''
-                        )
-                    );
-                    break;
-                case 'checkbox':
-                    add_settings_field(
-                        $key,
-                        $value['title'],
-                        array( $this, 'checkbox_element_callback' ),
-                        $value['menu'],
-                        $value['section'],
-                        array(
-                            'menu'        => $value['menu'],
-                            'id'          => $key,
-                            'description' => isset( $value['description'] ) ? $value['description'] : ''
-                        )
-                    );
-                    break;
-                case 'select':
-                    add_settings_field(
-                        $key,
-                        $value['title'],
-                        array( $this, 'select_element_callback' ),
-                        $value['menu'],
-                        $value['section'],
-                        array(
-                            'menu'        => $value['menu'],
-                            'id'          => $key,
-                            'description' => isset( $value['description'] ) ? $value['description'] : '',
-                            'options'     => $value['options']
-                        )
-                    );
-                    break;
                 case 'model':
                     add_settings_field(
                         $key,
@@ -244,103 +200,6 @@ class Floating_NextPrev_Admin {
 
         // Register settings.
         register_setting( $this->settings_name, $this->settings_name, array( $this, 'validate_options' ) );
-    }
-
-    /**
-     * Text element fallback.
-     *
-     * @since 2.0.0
-     *
-     * @param  array $args Field arguments.
-     *
-     * @return string      Text field.
-     */
-    public function text_element_callback( $args ) {
-        $menu  = $args['menu'];
-        $id    = $args['id'];
-        $class = isset( $args['class'] ) ? $args['class'] : 'small-text';
-
-        $options = get_option( $menu );
-
-        if ( isset( $options[ $id ] ) )
-            $current = $options[ $id ];
-        else
-            $current = isset( $args['default'] ) ? $args['default'] : '';
-
-        $html = sprintf( '<input type="text" id="%1$s" name="%2$s[%1$s]" value="%3$s" class="%4$s" />', $id, $menu, $current, $class );
-
-        // Displays option description.
-        if ( isset( $args['description'] ) )
-            $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
-
-        echo $html;
-    }
-
-    /**
-     * Checkbox field fallback.
-     *
-     * @since 2.0.0
-     *
-     * @param  array $args Field arguments.
-     *
-     * @return string      Checkbox field.
-     */
-    public function checkbox_element_callback( $args ) {
-        $menu = $args['menu'];
-        $id   = $args['id'];
-
-        $options = get_option( $menu );
-
-        if ( isset( $options[ $id ] ) )
-            $current = $options[ $id ];
-        else
-            $current = isset( $args['default'] ) ? $args['default'] : '';
-
-        $html = sprintf( '<input type="checkbox" id="%1$s" name="%2$s[%1$s]" value="1"%3$s />', $id, $menu, checked( 1, $current, false ) );
-
-        $html .= sprintf( '<label for="%s"> %s</label><br />', $id, __( 'Activate/Deactivate', $this->plugin_slug ) );
-
-        // Displays option description.
-        if ( isset( $args['description'] ) )
-            $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
-
-        echo $html;
-    }
-
-    /**
-     * Select element fallback.
-     *
-     * @since 2.0.0
-     *
-     * @param  array $args Field arguments.
-     *
-     * @return string      Select field.
-     */
-    function select_element_callback( $args ) {
-        $menu = $args['menu'];
-        $id   = $args['id'];
-
-        $options = get_option( $menu );
-
-        if ( isset( $options[ $id ] ) )
-            $current = $options[ $id ];
-        else
-            $current = isset( $args['default'] ) ? $args['default'] : '#ffffff';
-
-        $html = sprintf( '<select id="%1$s" name="%2$s[%1$s]">', $id, $menu );
-        $key = 0;
-        foreach ( $args['options'] as $label ) {
-            $html .= sprintf( '<option value="%s"%s>%s</option>', $key, selected( $current, $key, false ), $label );
-
-            $key++;
-        }
-        $html .= '</select>';
-
-        // Displays option description.
-        if ( isset( $args['description'] ) )
-            $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
-
-        echo $html;
     }
 
     /**
@@ -405,6 +264,9 @@ class Floating_NextPrev_Admin {
      * @return array
      */
     public function add_action_links( $links ) {
-        return array_merge( array( 'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_slug ) . '">' . __( 'Settings', $this->plugin_slug ) . '</a>' ), $links );
+        $admin_url = admin_url( 'options-general.php?page=' . $this->plugin_slug );
+        $plugin_links = array_merge( array(  'settings' => '<a href="' . $admin_url . '">' . __( 'Settings', $this->plugin_slug ) . '</a>' ), $links );
+
+        return $plugin_links;
     }
 }
