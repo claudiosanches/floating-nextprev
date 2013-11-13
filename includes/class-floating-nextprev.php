@@ -191,16 +191,13 @@ class Floating_NextPrev {
             wp_enqueue_script( 'jquery' );
             wp_enqueue_style( $this->plugin_slug, plugins_url( 'assets/css/' . $this->plugin_slug . '.css', dirname( __FILE__ ) ), array(), null );
             wp_enqueue_script( $this->plugin_slug, plugins_url( 'assets/js/' . $this->plugin_slug . '.min.js', dirname( __FILE__ ) ), array( 'jquery' ), null, true );
-            // wp_localize_script(
-            //     $this->plugin_slug,
-            //     'social_fblog_params',
-            //     array(
-            //         'effect'            => $settings['effects'],
-            //         'opacity'           => $settings['opacity'],
-            //         'top_distance'      => $settings['top_distance'],
-            //         'opacity_intensity' => $settings['opacity_intensity']
-            //     )
-            // );
+            wp_localize_script(
+                $this->plugin_slug,
+                'floating_nextprev_params',
+                array(
+                    'style' => substr( $settings['model'], 0, 3 )
+                )
+            );
         }
     }
 
