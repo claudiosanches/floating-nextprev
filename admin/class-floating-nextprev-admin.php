@@ -129,28 +129,8 @@ class Floating_NextPrev_Admin {
      * @return string
      */
     public function settings_page() {
-        // Create tabs current class.
-        $current_tab = '';
-        if ( isset( $_GET['tab'] ) )
-            $current_tab = $_GET['tab'];
-        else
-            $current_tab = 'buttons';
-        ?>
-
-        <div class="wrap">
-            <?php screen_icon( 'options-general' ); ?>
-            <h2><?php _e( 'Floating NextPrev', $this->plugin_slug ); ?></h2>
-
-            <form method="post" action="options.php">
-                <?php
-                    settings_fields( $this->settings_name );
-                    do_settings_sections( $this->settings_name );
-                    submit_button();
-                ?>
-            </form>
-        </div>
-
-        <?php
+        $settings_name = $this->settings_name;
+        include_once 'views/admin.php';
     }
 
     /**
