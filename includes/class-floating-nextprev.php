@@ -125,6 +125,7 @@ class Floating_NextPrev {
                 'default' => 1,
                 'type'    => 'model',
                 'section' => 'design',
+                'default' => 'default',
                 'menu'    => $this->get_settings_name(),
                 'options' => array(
                     'default',
