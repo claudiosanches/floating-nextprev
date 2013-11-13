@@ -5,6 +5,8 @@
     $(function () {
         var nav_left = $( "#floating-nextprev .floating-nextprev-prev" ),
             nav_right = $( "#floating-nextprev .floating-nextprev-next" ),
+            nav_content = ".floating-nextprev-content strong, .floating-nextprev-content span",
+            nav_content_wrap = ".floating-nextprev-content",
             hover_distance = -20,
             initial_distance = -215,
             delay = 300,
@@ -22,20 +24,20 @@
         // Left
         nav_left.on({
             mouseenter: function() {
-                $( ".floating-nextprev-content", $( this ) ).stop().animate({
+                $( nav_content_wrap, $( this ) ).stop().animate({
                     left: hover_distance
                 }, move_time );
 
-                $( ".floating-nextprev-content strong, .floating-nextprev-content span", $( this ) ).stop().delay( delay ).animate({
+                $( nav_content, $( this ) ).stop().delay( delay ).animate({
                     opacity: 1
                 }, opacity_time );
             },
             mouseleave: function() {
-                $( ".floating-nextprev-content", $( this ) ).stop().animate({
+                $( nav_content_wrap, $( this ) ).stop().animate({
                     left: initial_distance
                 }, move_time );
 
-                $( ".floating-nextprev-content strong, .floating-nextprev-content span", $( this )).stop().animate({
+                $( nav_content, $( this )).stop().animate({
                     opacity: 0
                 }, opacity_time );
             }
@@ -44,20 +46,20 @@
         // Right
         nav_right.on({
             mouseenter: function() {
-                $( ".floating-nextprev-content", $( this ) ).stop().animate({
+                $( nav_content_wrap, $( this ) ).stop().animate({
                     right: hover_distance
                 }, move_time );
 
-                $( ".floating-nextprev-content strong, .floating-nextprev-content span", $( this ) ).stop().delay( delay ).animate({
+                $( nav_content, $( this ) ).stop().delay( delay ).animate({
                     opacity: 1
                 }, opacity_time );
             },
             mouseleave: function() {
-                $( ".floating-nextprev-content", $( this ) ).stop().animate({
+                $( nav_content_wrap, $( this ) ).stop().animate({
                     right: initial_distance
                 }, move_time );
 
-                $( ".floating-nextprev-content strong, .floating-nextprev-content span", $( this ) ).stop().animate({
+                $( nav_content, $( this ) ).stop().animate({
                     opacity: 0
                 }, opacity_time );
             }
