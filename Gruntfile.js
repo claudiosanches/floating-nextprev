@@ -12,11 +12,12 @@ module.exports = function(grunt) {
 
         // plugin directories
         dirs: {
-            js: "public/assets/js",
-            css: "public/assets/css",
-            sass: "public/assets/sass",
-            images: "public/assets/images",
-            fonts: "public/assets/fonts"
+            admin_images: "admin/assets/images",
+            public_js: "public/assets/js",
+            public_css: "public/assets/css",
+            public_sass: "public/assets/sass",
+            public_images: "public/assets/images",
+            public_fonts: "public/assets/fonts"
         },
 
         // svn settings
@@ -31,8 +32,8 @@ module.exports = function(grunt) {
                 ".jshintrc",
                 ".sass-cache/",
                 "node_modules/",
-                "<%= dirs.sass %>/",
-                "<%= dirs.js %>/<%= pkg.name %>.js",
+                "<%= dirs.public_sass %>/",
+                "<%= dirs.public_js %>/<%= pkg.name %>.js",
                 "Gruntfile.js",
                 "README.md",
                 "package.json",
@@ -47,7 +48,7 @@ module.exports = function(grunt) {
             },
             all: [
                 "Gruntfile.js",
-                "<%= dirs.js %>/<%= pkg.name %>.js"
+                "<%= dirs.public_js %>/<%= pkg.name %>.js"
             ]
         },
 
@@ -55,7 +56,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    "<%= dirs.js %>/<%= pkg.name %>.min.js": ["<%= dirs.js %>/<%= pkg.name %>.js"]
+                    "<%= dirs.public_js %>/<%= pkg.name %>.min.js": ["<%= dirs.public_js %>/<%= pkg.name %>.js"]
                 }
             }
         },
@@ -65,11 +66,11 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     httpPath: "",
-                    sassDir: "<%= dirs.sass %>",
-                    cssDir: "<%= dirs.css %>",
-                    imagesDir: "<%= dirs.images %>",
-                    javascriptsDir: "<%= dirs.js %>",
-                    fontsDir: "<%= dirs.fonts %>",
+                    sassDir: "<%= dirs.public_sass %>",
+                    cssDir: "<%= dirs.public_css %>",
+                    imagesDir: "<%= dirs.public_images %>",
+                    javascriptsDir: "<%= dirs.public_js %>",
+                    fontsDir: "<%= dirs.public_fonts %>",
                     environment: "production",
                     relativeAssets: true,
                     noLineComments: true,
@@ -106,6 +107,11 @@ module.exports = function(grunt) {
                     cwd: "./",
                     src: "screenshot-*.png",
                     dest: "./"
+                }, {
+                    expand: true,
+                    cwd: "<%= dirs.admin_images %>/",
+                    src: "*.png",
+                    dest: "<%= dirs.admin_images %>/"
                 }]
             }
         },
