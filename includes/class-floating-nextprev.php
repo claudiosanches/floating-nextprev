@@ -213,9 +213,9 @@ class Floating_NextPrev {
      */
     public function view() {
         if ( is_single() && apply_filters( $this->get_settings_name() . '_display', true ) ) {
-            $settings = get_option( $this->get_settings_name() );
-            $slug = $this->get_plugin_slug();
-            $in_same_cat = apply_filters( $this->get_settings_name() . '_in_same_cat', false );
+            $settings            = get_option( $this->get_settings_name() );
+            $slug                = $this->get_plugin_slug();
+            $in_same_cat         = apply_filters( $this->get_settings_name() . '_in_same_cat', false );
             $excluded_categories = apply_filters( $this->get_settings_name() . '_excluded_categories', '' );
         ?>
             <div id="<?php echo $slug; ?>" class="style-<?php echo sanitize_text_field( $settings['model'] ); ?>">
