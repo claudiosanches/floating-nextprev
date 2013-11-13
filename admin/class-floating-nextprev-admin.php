@@ -204,7 +204,7 @@ class Floating_NextPrev_Admin {
 
         $html = '';
         foreach (  $args['options'] as $option ) {
-            $example = plugins_url( 'assets/images/examples/' .  $option . '.jpg', dirname( __FILE__ ) );
+            $example = plugins_url( 'assets/images/' .  $option . '.jpg', __FILE__ );
 
             $html .= sprintf( '<label style="display: block; margin-bottom: 5px;"><input type="radio" name="%2$s[%1$s]" value="%3$s"%4$s /> <img src="%5$s" style="vertical-align: middle;" /></label>', $id, $menu, $option, checked( $current, $option, false ), $example );
         }
