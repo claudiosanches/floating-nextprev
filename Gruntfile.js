@@ -12,11 +12,11 @@ module.exports = function(grunt) {
 
         // plugin directories
         dirs: {
-            js: "assets/js",
-            css: "assets/css",
-            sass: "assets/sass",
-            images: "assets/images",
-            fonts: "assets/fonts"
+            js: "public/assets/js",
+            css: "public/assets/css",
+            sass: "public/assets/sass",
+            images: "public/assets/images",
+            fonts: "public/assets/fonts"
         },
 
         // svn settings
@@ -31,8 +31,8 @@ module.exports = function(grunt) {
                 ".jshintrc",
                 ".sass-cache/",
                 "node_modules/",
-                "assets/sass/",
-                "assets/js/<%= pkg.name %>.js",
+                "<%= dirs.sass %>/",
+                "<%= dirs.js %>/<%= pkg.name %>.js",
                 "Gruntfile.js",
                 "README.md",
                 "package.json",

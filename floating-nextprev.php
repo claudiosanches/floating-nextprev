@@ -25,7 +25,7 @@
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) die;
 
-require_once plugin_dir_path( __FILE__ ) . '/includes/class-floating-nextprev.php';
+require_once plugin_dir_path( __FILE__ ) . '/public/class-floating-nextprev.php';
 
 /**
  * Install default settings.
