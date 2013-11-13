@@ -31,32 +31,14 @@ $gray: #666;
 
     .floating-nextprev-content {
         overflow: hidden;
-        width: 200px;
-        height: 107px;
+        width: 250px;
+        height: 108px;
         border-style: solid;
         background: #fff;
         color: $text-color;
         position: absolute;
         top: -36px;
         z-index: 1;
-    }
-
-    .floating-nextprev-prev {
-        left: 10px;
-
-        .floating-nextprev-content {
-            left: -10px;
-            // left: -235px;
-        }
-    }
-
-    .floating-nextprev-next {
-        right: 10px;
-
-        .floating-nextprev-content {
-            right: -10px;
-            // right: -235px;
-        }
     }
 
     /* Arrows */
@@ -81,17 +63,39 @@ $gray: #666;
         display: block;
         font-weight: bold;
         margin: 5px 0;
+        opacity: 0;
+    }
+
+    span {
+        opacity: 0;
     }
 
     /**
      * Styles.
      */
 
-    /* btn's */
+    /* btn's and default */
+    &.style-default,
     &.style-btnblue,
     &.style-btnred,
     &.style-btngreen,
     &.style-btngray {
+        .floating-nextprev-prev {
+            left: 10px;
+
+            .floating-nextprev-content {
+                left: -215px;
+            }
+        }
+
+        .floating-nextprev-next {
+            right: 10px;
+
+            .floating-nextprev-content {
+                right: -215px;
+            }
+        }
+
         .floating-nextprev-prev .floating-nextprev-content {
             padding: 5px 10px 0 60px;
             border-width: 1px 4px 1px 0;
@@ -102,6 +106,27 @@ $gray: #666;
             border-width: 1px 0 1px 4px;
         }
     }
+
+    /* default */
+    &.style-default {
+        .floating-nextprev-prev .floating-nextprev-content {
+            border-width: 1px 1px 1px 0;
+            -webkit-border-radius: 0 20px 20px 0;
+            border-radius: 0 20px 20px 0;
+        }
+
+        .floating-nextprev-next .floating-nextprev-content {
+            border-width: 1px 0 1px 1px;
+            -webkit-border-radius: 20px 0 0 20px;
+            border-radius: 20px 0 0 20px;
+        }
+
+        .floating-nextprev-content {
+            border-color: $gray;
+        }
+    }
+
+    /* btn's */
     &.style-btnblue {
         .floating-nextprev-content {
             border-color: $blue;
@@ -135,6 +160,92 @@ $gray: #666;
     &.style-btngray {
         .floating-nextprev-content {
             border-color: $gray;
+        }
+
+        strong {
+            color: $gray;
+        }
+    }
+
+    /* fblike */
+    &.style-likefb,
+    &.style-likefbred,
+    &.style-likefbgreen,
+    &.style-likefbgray {
+        .floating-nextprev-prev {
+            left: 30px;
+
+            .floating-nextprev-content {
+                left: -400px;
+            }
+        }
+
+        .floating-nextprev-next {
+            right: 30px;
+
+            .floating-nextprev-content {
+                right: -400px;
+            }
+        }
+
+        .floating-nextprev-content {
+            border-top: none;
+            border-bottom: 1px solid #ccc;
+            border-left: 1px solid #ccc;
+            border-right: 1px solid #ccc;
+
+            &:before {
+                content: " ";
+                position: absolute;
+                width: 100%;
+                height: 4px;
+                left: 0;
+                top: 0;
+            }
+        }
+
+        .floating-nextprev-prev .floating-nextprev-content {
+            padding: 5px 10px 0 40px;
+        }
+
+        .floating-nextprev-next .floating-nextprev-content {
+            padding: 5px 40px 0 10px;
+        }
+    }
+
+    &.style-likefb {
+        .floating-nextprev-content:before {
+            background: $blue;
+        }
+
+        strong {
+            color: $blue;
+        }
+    }
+
+    &.style-likefbred {
+        .floating-nextprev-content:before {
+            background: $red;
+        }
+
+        strong {
+            color: $red;
+        }
+    }
+
+    &.style-likefbgreen {
+        .floating-nextprev-content:before {
+            background: $green;
+        }
+
+        strong {
+            color: $green;
+        }
+    }
+
+    &.style-likefbgray {
+        .floating-nextprev-content:before {
+            background: $gray;
         }
 
         strong {
