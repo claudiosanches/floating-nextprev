@@ -217,6 +217,8 @@ class Floating_NextPrev {
             $slug                = $this->get_plugin_slug();
             $in_same_cat         = apply_filters( $this->get_settings_name() . '_in_same_cat', false );
             $excluded_categories = apply_filters( $this->get_settings_name() . '_excluded_categories', '' );
+            $prev_title          = apply_filters( $this->get_settings_name() . '_prev_title', __( 'Previous', $slug ) );
+            $next_title          = apply_filters( $this->get_settings_name() . '_next_title', __( 'Next', $slug ) );
 
             include_once 'views/public.php';
         }
