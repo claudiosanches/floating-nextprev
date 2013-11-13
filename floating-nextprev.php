@@ -11,7 +11,7 @@
  * @wordpress-plugin
  * Plugin Name: Floating NextPrev
  * Plugin URI: https://github.com/claudiosmweb/floating-nextprev
- * Description: Display icons for navigation between your posts so practical and fast.
+ * Description: Displays icons for navigation between your posts so practical and fast.
  * Version: 2.0.0
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/

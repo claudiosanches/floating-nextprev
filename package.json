@@ -1,6 +1,6 @@
 {
   "name": "floating-nextprev",
-  "description": "Display icons for navigation between your posts so practical and fast.",
+  "description": "Displays icons for navigation between your posts so practical and fast.",
   "version": "2.0.0",
   "main": "Gruntfile.js",
   "devDependencies": {
