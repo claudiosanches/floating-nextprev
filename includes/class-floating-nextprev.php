@@ -214,8 +214,9 @@ class Floating_NextPrev {
      * @return string          Content with socialfblog buttons.
      */
     public function view() {
-        if ( is_single() ) {
-            $settings_name = $this->get_settings_name();
+        $settings_name = $this->get_settings_name();
+
+        if ( is_single() && apply_filters( $settings_name . '_display', true ) ) {
             $settings = get_option( $settings_name );
             $slug = $this->plugin_slug;
             $textdomain = $this->plugin_slug;
