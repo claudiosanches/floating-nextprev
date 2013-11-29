@@ -39,47 +39,47 @@ You can contribute to the source code in our [GitHub](https://github.com/claudio
 
 Paste this code in `functions.php` file of your theme:
 
-    add_filter( 'floating_nextprev_in_same_cat', '__return_true' );
+	add_filter( 'floating_nextprev_in_same_cat', '__return_true' );
 
 = How to hide in some categories? =
 
 Use this example in `functions.php` file of your theme:
 
-    function floating_nextprev_exclude_categories( $excluded_categories ) {
-        $excluded_categories = '1,2,3'; // add your categories ids.
+	function floating_nextprev_exclude_categories( $excluded_categories ) {
+		$excluded_categories = '1,2,3'; // add your categories ids.
 
-        return excluded_categories;
-    }
+		return excluded_categories;
+	}
 
-    add_filter( 'floating_nextprev_excluded_categories', 'floating_nextprev_exclude_categories' );
+	add_filter( 'floating_nextprev_excluded_categories', 'floating_nextprev_exclude_categories' );
 
 = How can I control the display? =
 
 You can control the display using the `floating_nextprev_display` filter.  
 Example how to display only in news category:
 
-    function floating_nextprev_only_in_news( $display ) {
-        return in_category( 'news' );
-    }
+	function floating_nextprev_only_in_news( $display ) {
+		return in_category( 'news' );
+	}
 
-    add_filter( 'floating_nextprev_display', 'floating_nextprev_only_in_news' );
+	add_filter( 'floating_nextprev_display', 'floating_nextprev_only_in_news' );
 
 = How to change the "Previous" and "Next" titles? =
 
 Use the `floating_nextprev_prev_title` and `floating_nextprev_next_title` filters.  
 Example:
 
-    function floating_nextprev_prev_title( $title ) {
-        return __( '&larr;', 'textdomain' );
-    }
+	function floating_nextprev_prev_title( $title ) {
+		return __( '&larr;', 'textdomain' );
+	}
 
-    add_filter( 'floating_nextprev_prev_title', 'floating_nextprev_prev_title' );
+	add_filter( 'floating_nextprev_prev_title', 'floating_nextprev_prev_title' );
 
-    function floating_nextprev_next_title( $title ) {
-        return __( '&rarr;', 'textdomain' );
-    }
+	function floating_nextprev_next_title( $title ) {
+		return __( '&rarr;', 'textdomain' );
+	}
 
-    add_filter( 'floating_nextprev_next_title', 'floating_nextprev_next_title' );
+	add_filter( 'floating_nextprev_next_title', 'floating_nextprev_next_title' );
 
 == Screenshots ==
 

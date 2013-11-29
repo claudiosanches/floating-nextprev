@@ -17,236 +17,236 @@
  */
 class Floating_NextPrev_Admin {
 
-    /**
-     * Settings name.
-     *
-     * @since 2.0.0
-     *
-     * @var string
-     */
-    public $settings_name = 'floating_nextprev';
+	/**
+	 * Settings name.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @var string
+	 */
+	public $settings_name = 'floating_nextprev';
 
-    /**
-     * Instance of this class.
-     *
-     * @since 2.0.0
-     *
-     * @var object
-     */
-    protected static $instance = null;
+	/**
+	 * Instance of this class.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @var object
+	 */
+	protected static $instance = null;
 
-    /**
-     * Initialize the plugin by loading admin scripts & styles and adding a
-     * settings page and menu.
-     *
-     * @since 2.0.0
-     */
-    private function __construct() {
+	/**
+	 * Initialize the plugin by loading admin scripts & styles and adding a
+	 * settings page and menu.
+	 *
+	 * @since 2.0.0
+	 */
+	private function __construct() {
 
-        $this->main_plugin   = Floating_NextPrev::get_instance();
-        $this->plugin_slug   = $this->main_plugin->get_plugin_slug();
-        $this->settings_name = $this->main_plugin->get_settings_name();
+		$this->main_plugin   = Floating_NextPrev::get_instance();
+		$this->plugin_slug   = $this->main_plugin->get_plugin_slug();
+		$this->settings_name = $this->main_plugin->get_settings_name();
 
-        // Adds admin menu.
-        add_action( 'admin_menu', array( $this, 'menu' ) );
+		// Adds admin menu.
+		add_action( 'admin_menu', array( $this, 'menu' ) );
 
-        // Init plugin options form.
-        add_action( 'admin_init', array( $this, 'plugin_settings' ) );
+		// Init plugin options form.
+		add_action( 'admin_init', array( $this, 'plugin_settings' ) );
 
-        // Add an action link pointing to the options page.
-        $plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
-        add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
-    }
+		// Add an action link pointing to the options page.
+		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
+		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
+	}
 
-    /**
-     * Return an instance of this class.
-     *
-     * @since 2.0.0
-     *
-     * @return object A single instance of this class.
-     */
-    public static function get_instance() {
-        if ( null == self::$instance )
-            self::$instance = new self;
+	/**
+	 * Return an instance of this class.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return object A single instance of this class.
+	 */
+	public static function get_instance() {
+		if ( null == self::$instance )
+			self::$instance = new self;
 
-        return self::$instance;
-    }
+		return self::$instance;
+	}
 
-    /**
-     * Update plugin settings.
-     * Makes upgrades of legacy versions.
-     *
-     * @since 2.0.0
-     *
-     * @return void
-     */
-    public function update() {
-        if ( get_option( 'fnextprev_style' ) ) {
-            $settings = array(
-                'model' => get_option( 'fnextprev_style' )
-            );
+	/**
+	 * Update plugin settings.
+	 * Makes upgrades of legacy versions.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return void
+	 */
+	public function update() {
+		if ( get_option( 'fnextprev_style' ) ) {
+			$settings = array(
+				'model' => get_option( 'fnextprev_style' )
+			);
 
-            // Updates options
-            update_option( $this->settings_name, $settings );
+			// Updates options
+			update_option( $this->settings_name, $settings );
 
-            // Removes old options.
-            delete_option( 'fnextprev_style' );
-        } else {
-            // Install default options.
-            $settings = array();
+			// Removes old options.
+			delete_option( 'fnextprev_style' );
+		} else {
+			// Install default options.
+			$settings = array();
 
-            foreach ( $this->main_plugin->get_options() as $key => $value ) {
-                if ( 'section' != $value['type'] )
-                    $settings[ $key ] = $value['default'];
-            }
+			foreach ( $this->main_plugin->get_options() as $key => $value ) {
+				if ( 'section' != $value['type'] )
+					$settings[ $key ] = $value['default'];
+			}
 
-            add_option( $this->settings_name, $settings );
-        }
-    }
+			add_option( $this->settings_name, $settings );
+		}
+	}
 
-    /**
-     * Add plugin settings menu.
-     *
-     * @since 2.0.0
-     *
-     * @return void
-     */
-    public function menu() {
-        add_options_page(
-            __( 'Floating NextPrev', $this->plugin_slug ),
-            __( 'Floating NextPrev', $this->plugin_slug ),
-            'manage_options',
-            $this->plugin_slug,
-            array( $this, 'settings_page' )
-        );
-    }
+	/**
+	 * Add plugin settings menu.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return void
+	 */
+	public function menu() {
+		add_options_page(
+			__( 'Floating NextPrev', $this->plugin_slug ),
+			__( 'Floating NextPrev', $this->plugin_slug ),
+			'manage_options',
+			$this->plugin_slug,
+			array( $this, 'settings_page' )
+		);
+	}
 
-    /**
-     * Plugin settings page.
-     *
-     * @since 2.0.0
-     *
-     * @return string
-     */
-    public function settings_page() {
-        $settings_name = $this->settings_name;
-        include_once 'views/admin.php';
-    }
+	/**
+	 * Plugin settings page.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return string
+	 */
+	public function settings_page() {
+		$settings_name = $this->settings_name;
+		include_once 'views/admin.php';
+	}
 
-    /**
-     * Plugin settings form fields.
-     *
-     * @since 2.0.0
-     *
-     * @return void
-     */
-    public function plugin_settings() {
-        // Create option in wp_options.
-        if ( false == get_option( $this->settings_name ) )
-            $this->update();
+	/**
+	 * Plugin settings form fields.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return void
+	 */
+	public function plugin_settings() {
+		// Create option in wp_options.
+		if ( false == get_option( $this->settings_name ) )
+			$this->update();
 
-        foreach ( $this->main_plugin->get_options() as $key => $value ) {
+		foreach ( $this->main_plugin->get_options() as $key => $value ) {
 
-            switch ( $value['type'] ) {
-                case 'section':
-                    add_settings_section(
-                        $key,
-                        $value['title'],
-                        '__return_false',
-                        $value['menu']
-                    );
-                    break;
-                case 'model':
-                    add_settings_field(
-                        $key,
-                        $value['title'],
-                        array( $this, 'model_element_callback' ),
-                        $value['menu'],
-                        $value['section'],
-                        array(
-                            'menu'        => $value['menu'],
-                            'id'          => $key,
-                            'description' => isset( $value['description'] ) ? $value['description'] : '',
-                            'options'     => $value['options']
-                        )
-                    );
-                    break;
+			switch ( $value['type'] ) {
+				case 'section':
+					add_settings_section(
+						$key,
+						$value['title'],
+						'__return_false',
+						$value['menu']
+					);
+					break;
+				case 'model':
+					add_settings_field(
+						$key,
+						$value['title'],
+						array( $this, 'model_element_callback' ),
+						$value['menu'],
+						$value['section'],
+						array(
+							'menu'        => $value['menu'],
+							'id'          => $key,
+							'description' => isset( $value['description'] ) ? $value['description'] : '',
+							'options'     => $value['options']
+						)
+					);
+					break;
 
-                default:
-                    break;
-            }
+				default:
+					break;
+			}
 
-        }
+		}
 
-        // Register settings.
-        register_setting( $this->settings_name, $this->settings_name, array( $this, 'validate_options' ) );
-    }
+		// Register settings.
+		register_setting( $this->settings_name, $this->settings_name, array( $this, 'validate_options' ) );
+	}
 
-    /**
-     * Model element fallback.
-     *
-     * @since 2.0.0
-     *
-     * @param  array $args Field arguments.
-     *
-     * @return string      Select field.
-     */
-    function model_element_callback( $args ) {
-        $menu = $args['menu'];
-        $id   = $args['id'];
+	/**
+	 * Model element fallback.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param  array $args Field arguments.
+	 *
+	 * @return string      Select field.
+	 */
+	function model_element_callback( $args ) {
+		$menu = $args['menu'];
+		$id   = $args['id'];
 
-        $options = get_option( $menu );
+		$options = get_option( $menu );
 
-        if ( isset( $options[ $id ] ) )
-            $current = $options[ $id ];
-        else
-            $current = isset( $args['default'] ) ? $args['default'] : '';
+		if ( isset( $options[ $id ] ) )
+			$current = $options[ $id ];
+		else
+			$current = isset( $args['default'] ) ? $args['default'] : '';
 
-        $html = '';
-        foreach (  $args['options'] as $option ) {
-            $example = plugins_url( 'assets/images/' .  $option . '.png', __FILE__ );
+		$html = '';
+		foreach (  $args['options'] as $option ) {
+			$example = plugins_url( 'assets/images/' .  $option . '.png', __FILE__ );
 
-            $html .= sprintf( '<label style="display: block; margin-bottom: 5px;"><input type="radio" name="%2$s[%1$s]" value="%3$s"%4$s /> <img src="%5$s" style="vertical-align: middle;" /></label>', $id, $menu, $option, checked( $current, $option, false ), $example );
-        }
+			$html .= sprintf( '<label style="display: block; margin-bottom: 5px;"><input type="radio" name="%2$s[%1$s]" value="%3$s"%4$s /> <img src="%5$s" style="vertical-align: middle;" /></label>', $id, $menu, $option, checked( $current, $option, false ), $example );
+		}
 
-        // Displays option description.
-        if ( isset( $args['description'] ) )
-            $html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+		// Displays option description.
+		if ( isset( $args['description'] ) )
+			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
 
-        echo $html;
-    }
+		echo $html;
+	}
 
-    /**
-     * Valid options.
-     *
-     * @since 2.0.0
-     *
-     * @param  array $input options to valid.
-     *
-     * @return array        validated options.
-     */
-    public function validate_options( $input ) {
-        $output = array();
+	/**
+	 * Valid options.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @param  array $input options to valid.
+	 *
+	 * @return array        validated options.
+	 */
+	public function validate_options( $input ) {
+		$output = array();
 
-        foreach ( $input as $key => $value ) {
-            if ( isset( $input[ $key ] ) )
-                $output[ $key ] = sanitize_text_field( $input[ $key ] );
-        }
+		foreach ( $input as $key => $value ) {
+			if ( isset( $input[ $key ] ) )
+				$output[ $key ] = sanitize_text_field( $input[ $key ] );
+		}
 
-        return $output;
-    }
+		return $output;
+	}
 
-    /**
-     * Add settings action link to the plugins page.
-     *
-     * @since 2.0.0
-     *
-     * @return array
-     */
-    public function add_action_links( $links ) {
-        $admin_url = admin_url( 'options-general.php?page=' . $this->plugin_slug );
-        $plugin_links = array_merge( array(  'settings' => '<a href="' . $admin_url . '">' . __( 'Settings', $this->plugin_slug ) . '</a>' ), $links );
+	/**
+	 * Add settings action link to the plugins page.
+	 *
+	 * @since 2.0.0
+	 *
+	 * @return array
+	 */
+	public function add_action_links( $links ) {
+		$admin_url = admin_url( 'options-general.php?page=' . $this->plugin_slug );
+		$plugin_links = array_merge( array(  'settings' => '<a href="' . $admin_url . '">' . __( 'Settings', $this->plugin_slug ) . '</a>' ), $links );
 
-        return $plugin_links;
-    }
+		return $plugin_links;
+	}
 }

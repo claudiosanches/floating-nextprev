@@ -41,6 +41,6 @@ add_action( 'plugins_loaded', array( 'Floating_NextPrev', 'get_instance' ) );
  * Plugin admin.
  */
 if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-    require_once plugin_dir_path( __FILE__ ) . '/admin/class-floating-nextprev-admin.php';
-    add_action( 'plugins_loaded', array( 'Floating_NextPrev_Admin', 'get_instance' ) );
+	require_once plugin_dir_path( __FILE__ ) . '/admin/class-floating-nextprev-admin.php';
+	add_action( 'plugins_loaded', array( 'Floating_NextPrev_Admin', 'get_instance' ) );
 }
