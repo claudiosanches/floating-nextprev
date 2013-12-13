@@ -10,12 +10,13 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) die;
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 ?>
 
 <div class="wrap">
 
-	<?php screen_icon( 'options-general' ); ?>
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 
 	<form method="post" action="options.php">

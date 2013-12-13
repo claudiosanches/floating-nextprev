@@ -95,13 +95,14 @@ class Floating_NextPrev {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @return object A single instance of this class.
 	 */
 	public static function get_instance() {
-		if ( null == self::$instance )
+		if ( null == self::$instance ) {
 			self::$instance = new self;
+		}
 
 		return self::$instance;
 	}
@@ -162,7 +163,7 @@ class Floating_NextPrev {
 	/**
 	 * Installs default settings on plugin activation.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @return void
 	 */
@@ -171,8 +172,9 @@ class Floating_NextPrev {
 		$settings = array();
 
 		foreach ( $instance->get_options() as $key => $value ) {
-			if ( 'section' != $value['type'] )
+			if ( 'section' != $value['type'] ) {
 				$settings[ $key ] = $value['default'];
+			}
 		}
 
 		add_option( $instance->get_settings_name(), $settings );

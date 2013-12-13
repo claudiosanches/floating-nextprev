@@ -39,7 +39,7 @@ class Floating_NextPrev_Admin {
 	 * Initialize the plugin by loading admin scripts & styles and adding a
 	 * settings page and menu.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 */
 	private function __construct() {
 
@@ -52,22 +52,19 @@ class Floating_NextPrev_Admin {
 
 		// Init plugin options form.
 		add_action( 'admin_init', array( $this, 'plugin_settings' ) );
-
-		// Add an action link pointing to the options page.
-		$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_slug . '.php' );
-		add_filter( 'plugin_action_links_' . $plugin_basename, array( $this, 'add_action_links' ) );
 	}
 
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @return object A single instance of this class.
 	 */
 	public static function get_instance() {
-		if ( null == self::$instance )
+		if ( null == self::$instance ) {
 			self::$instance = new self;
+		}
 
 		return self::$instance;
 	}
@@ -76,7 +73,7 @@ class Floating_NextPrev_Admin {
 	 * Update plugin settings.
 	 * Makes upgrades of legacy versions.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @return void
 	 */
@@ -96,8 +93,9 @@ class Floating_NextPrev_Admin {
 			$settings = array();
 
 			foreach ( $this->main_plugin->get_options() as $key => $value ) {
-				if ( 'section' != $value['type'] )
+				if ( 'section' != $value['type'] ) {
 					$settings[ $key ] = $value['default'];
+				}
 			}
 
 			add_option( $this->settings_name, $settings );
@@ -136,14 +134,15 @@ class Floating_NextPrev_Admin {
 	/**
 	 * Plugin settings form fields.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @return void
 	 */
 	public function plugin_settings() {
 		// Create option in wp_options.
-		if ( false == get_option( $this->settings_name ) )
+		if ( false == get_option( $this->settings_name ) ) {
 			$this->update();
+		}
 
 		foreach ( $this->main_plugin->get_options() as $key => $value ) {
 
@@ -185,7 +184,7 @@ class Floating_NextPrev_Admin {
 	/**
 	 * Model element fallback.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @param  array $args Field arguments.
 	 *
@@ -197,10 +196,11 @@ class Floating_NextPrev_Admin {
 
 		$options = get_option( $menu );
 
-		if ( isset( $options[ $id ] ) )
+		if ( isset( $options[ $id ] ) ) {
 			$current = $options[ $id ];
-		else
+		} else {
 			$current = isset( $args['default'] ) ? $args['default'] : '';
+		}
 
 		$html = '';
 		foreach (  $args['options'] as $option ) {
@@ -210,8 +210,9 @@ class Floating_NextPrev_Admin {
 		}
 
 		// Displays option description.
-		if ( isset( $args['description'] ) )
+		if ( isset( $args['description'] ) ) {
 			$html .= sprintf( '<p class="description">%s</p>', $args['description'] );
+		}
 
 		echo $html;
 	}
@@ -219,7 +220,7 @@ class Floating_NextPrev_Admin {
 	/**
 	 * Valid options.
 	 *
-	 * @since 2.0.0
+	 * @since 2.1.0
 	 *
 	 * @param  array $input options to valid.
 	 *
@@ -229,24 +230,11 @@ class Floating_NextPrev_Admin {
 		$output = array();
 
 		foreach ( $input as $key => $value ) {
-			if ( isset( $input[ $key ] ) )
+			if ( isset( $input[ $key ] ) ) {
 				$output[ $key ] = sanitize_text_field( $input[ $key ] );
+			}
 		}
 
 		return $output;
-	}
-
-	/**
-	 * Add settings action link to the plugins page.
-	 *
-	 * @since 2.0.0
-	 *
-	 * @return array
-	 */
-	public function add_action_links( $links ) {
-		$admin_url = admin_url( 'options-general.php?page=' . $this->plugin_slug );
-		$plugin_links = array_merge( array(  'settings' => '<a href="' . $admin_url . '">' . __( 'Settings', $this->plugin_slug ) . '</a>' ), $links );
-
-		return $plugin_links;
 	}
 }

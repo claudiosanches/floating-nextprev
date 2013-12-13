@@ -12,7 +12,7 @@
  * Plugin Name: Floating NextPrev
  * Plugin URI: https://github.com/claudiosmweb/floating-nextprev
  * Description: Displays icons for navigation between your posts so practical and fast.
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: claudiosanches
  * Author URI: http://claudiosmweb.com/
  * Text Domain: floating-nextprev
@@ -23,7 +23,9 @@
  */
 
 // If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) die;
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
 
 require_once plugin_dir_path( __FILE__ ) . '/public/class-floating-nextprev.php';
 

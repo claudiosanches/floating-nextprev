@@ -1,15 +1,15 @@
 /* jshint node:true */
 'use strict';
 
-module.exports = function(grunt) {
+module.exports = function( grunt ) {
 
 	// auto load grunt tasks
-	require('load-grunt-tasks')(grunt);
+	require( 'load-grunt-tasks' )(grunt);
 
 	var pluginConfig = {
 
 		// gets the package vars
-		pkg: grunt.file.readJSON('package.json'),
+		pkg: grunt.file.readJSON( 'package.json' ),
 
 		// plugin directories
 		dirs: {
@@ -171,19 +171,19 @@ module.exports = function(grunt) {
 	// --------------------------
 
 	// default task
-	grunt.registerTask('default', [
+	grunt.registerTask( 'default', [
 		'jshint',
 		'compass',
 		'uglify'
-	]);
+	] );
 
 	// deploy task
-	grunt.registerTask('deploy', [
+	grunt.registerTask( 'deploy', [
 		'default',
 		'rsync:tag',
 		'rsync:trunk',
 		'shell:svn_add',
 		'shell:svn_commit'
-	]);
+	] );
 
 };

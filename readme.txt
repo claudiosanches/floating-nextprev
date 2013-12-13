@@ -2,9 +2,9 @@
 Contributors: claudiosanches
 Donate link: http://claudiosmweb.com/doacoes/
 Tags: floating, navigation, jquery
-Requires at least: 3.6
-Tested up to: 3.7.1
-Stable tag: 2.0.0
+Requires at least: 3.8
+Tested up to: 3.8
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,11 @@ Example:
 2. Plugin settings.
 
 == Changelog ==
+
+= 2.1.0 - 13/12/2013 =
+
+* Fixed code standards.
+* Added support to WordPress 3.8.
 
 = 2.0.0 - 13/11/2013 =
 
