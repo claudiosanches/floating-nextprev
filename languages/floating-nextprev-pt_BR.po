@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: Floating NextPrev v2.0.0\n"
+"Project-Id-Version: Floating NextPrev v2.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2013-11-13 23:39:43+0000\n"
+"PO-Revision-Date: 2014-02-03 23:51:46+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,17 +21,12 @@ msgstr ""
 "X-Textdomain-Support: yes"
 
 #. translators: plugin header field 'Name'
-#: admin/class-floating-nextprev-admin.php:116
-#: admin/class-floating-nextprev-admin.php:117
+#: admin/class-floating-nextprev-admin.php:114
+#: admin/class-floating-nextprev-admin.php:115
 #: floating-nextprev.php:0
 #@ floating-nextprev
 msgid "Floating NextPrev"
 msgstr "Floating NextPrev"
-
-#: admin/class-floating-nextprev-admin.php:248
-#@ floating-nextprev
-msgid "Settings"
-msgstr "Configurações"
 
 #. translators: plugin header field 'PluginURI'
 #: floating-nextprev.php:0
@@ -51,28 +46,22 @@ msgstr "claudiosanches"
 msgid "http://claudiosmweb.com/"
 msgstr "http://claudiosmweb.com/"
 
-#. translators: plugin header field 'Version'
-#: floating-nextprev.php:0
-#@ floating-nextprev
-msgid "2.0.0"
-msgstr "2.0.0"
-
-#: public/class-floating-nextprev.php:119
+#: public/class-floating-nextprev.php:120
 #@ floating-nextprev
 msgid "Design"
 msgstr "Design"
 
-#: public/class-floating-nextprev.php:124
+#: public/class-floating-nextprev.php:125
 #@ floating-nextprev
 msgid "Model"
 msgstr "Modelo"
 
-#: public/class-floating-nextprev.php:220
+#: public/class-floating-nextprev.php:230
 #@ floating-nextprev
 msgid "Previous"
 msgstr "Anterior"
 
-#: public/class-floating-nextprev.php:221
+#: public/class-floating-nextprev.php:231
 #@ floating-nextprev
 msgid "Next"
 msgstr "Próximo"
@@ -82,4 +71,31 @@ msgstr "Próximo"
 #@ floating-nextprev
 msgid "Displays icons for navigation between your posts so practical and fast."
 msgstr "Exiba ícones para navegação entre as seus posts de forma prática e rápida."
+
+#. translators: plugin header field 'Version'
+#: floating-nextprev.php:0
+#@ floating-nextprev
+msgid "2.2.0"
+msgstr "2.2.0"
+
+#: public/class-floating-nextprev.php:143
+#@ floating-nextprev
+msgid "Thumbnail"
+msgstr "Imagem"
+
+#: public/class-floating-nextprev.php:144
+#@ floating-nextprev
+msgid "Show the featured image of the posts."
+msgstr "Exibir a imagem destacada dos posts."
+
+#: public/class-floating-nextprev.php:149
+#, php-format
+#@ floating-nextprev
+msgid "Note: You must set a %s for your posts."
+msgstr "Nota: Você deve configurar uma %s para os seus posts."
+
+#: public/class-floating-nextprev.php:149
+#@ floating-nextprev
+msgid "featured image"
+msgstr "imagem destacada"
 
