@@ -146,7 +146,7 @@ class Floating_NextPrev {
 				'type'        => 'checkbox',
 				'section'     => 'design',
 				'menu'        => $this->get_settings_name(),
-				'description' => __( 'Note: You must set a featured image for your posts.', $this->plugin_slug )
+				'description' => sprintf( __( 'Note: You must set a %s for your posts.', $this->plugin_slug ), '<a href="http://codex.wordpress.org/Post_Thumbnails" target="_blank">' . __( 'featured image', $this->plugin_slug ) . '</a>' )
 			)
 		);
 
