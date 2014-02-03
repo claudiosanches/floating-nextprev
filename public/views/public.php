@@ -19,6 +19,7 @@ if ( ! defined( 'WPINC' ) ) die;
 			<div class="<?php echo $slug; ?>-arrow-left"></div>
 			<div class="<?php echo $slug; ?>-content">
 				<strong><?php echo $prev_title; ?></strong>
+				<?php echo ( isset( $settings['thumbnail'] ) ) ? get_the_post_thumbnail( $prev_post->ID, array( 50, 50 ) ) : ''; ?>
 				<span><?php echo get_the_title( $prev_post->ID ); ?></span>
 			</div>
 		</a>
@@ -28,6 +29,7 @@ if ( ! defined( 'WPINC' ) ) die;
 			<div class="<?php echo $slug; ?>-arrow-right"></div>
 			<div class="<?php echo $slug; ?>-content">
 				<strong><?php echo $next_title; ?></strong>
+				<?php echo ( isset( $settings['thumbnail'] ) ) ? get_the_post_thumbnail( $next_post->ID, array( 50, 50 ) ) : ''; ?>
 				<span><?php echo get_the_title( $next_post->ID ); ?></span>
 			</div>
 		</a>

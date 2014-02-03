@@ -5,7 +5,7 @@
 	$(function () {
 		var nav_left = $( '#floating-nextprev .floating-nextprev-prev' ),
 			nav_right = $( '#floating-nextprev .floating-nextprev-next' ),
-			nav_content = '.floating-nextprev-content strong, .floating-nextprev-content span',
+			nav_content = '.floating-nextprev-content strong, .floating-nextprev-content span, .floating-nextprev-content img',
 			nav_content_wrap = '.floating-nextprev-content',
 			hover_distance = -20,
 			initial_distance = -215,
