@@ -4,7 +4,7 @@ Donate link: http://claudiosmweb.com/doacoes/
 Tags: floating, navigation, jquery
 Requires at least: 3.8
 Tested up to: 3.8
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -87,6 +87,10 @@ Example:
 2. Plugin settings.
 
 == Changelog ==
+
+= 2.2.0 - 03/02/2014 =
+
+* Added a option to display thumbnails.
 
 = 2.1.0 - 13/12/2013 =
 
