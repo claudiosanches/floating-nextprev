@@ -15,9 +15,21 @@ if ( ! defined( 'WPINC' ) ) die;
 
 <div id="<?php echo $slug; ?>" class="style-<?php echo sanitize_text_field( $settings['model'] ); ?>">
 	<div class="<?php echo $slug; ?>-prev <?php echo $slug; ?>-nav">
-		<?php previous_post_link( '%link', '<div class="' . $slug . '-arrow-left"></div><div class="' . $slug . '-content"><strong>' . $prev_title . '</strong><span>%title</span></div>', $in_same_cat, $excluded_categories ); ?>
+		<a rel="prev" href="<?php echo get_permalink( $prev_post->ID ); ?>">
+			<div class="<?php echo $slug; ?>-arrow-left"></div>
+			<div class="<?php echo $slug; ?>-content">
+				<strong><?php echo $prev_title; ?></strong>
+				<span><?php echo get_the_title( $prev_post->ID ); ?></span>
+			</div>
+		</a>
 	</div>
 	<div class="<?php echo $slug; ?>-next <?php echo $slug; ?>-nav">
-		<?php next_post_link( '%link', '<div class="' . $slug . '-arrow-right"></div><div class="' . $slug . '-content"><strong>' . $next_title . '</strong><span>%title</span></div>', $in_same_cat, $excluded_categories ); ?>
+		<a rel="next" href="<?php echo get_permalink( $next_post->ID ); ?>">
+			<div class="<?php echo $slug; ?>-arrow-right"></div>
+			<div class="<?php echo $slug; ?>-content">
+				<strong><?php echo $next_title; ?></strong>
+				<span><?php echo get_the_title( $next_post->ID ); ?></span>
+			</div>
+		</a>
 	</div>
 </div>
