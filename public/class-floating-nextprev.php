@@ -110,7 +110,7 @@ class Floating_NextPrev {
 	/**
 	 * Gets the options.
 	 *
-	 * @since 2.0.0
+	 * @since 2.2.0
 	 *
 	 * @return array Plugin default options.
 	 */
@@ -123,7 +123,6 @@ class Floating_NextPrev {
 			),
 			'model' => array(
 				'title'   => __( 'Model', $this->plugin_slug ),
-				'default' => 1,
 				'type'    => 'model',
 				'section' => 'design',
 				'default' => 'default',
@@ -137,8 +136,17 @@ class Floating_NextPrev {
 					'btnblue',
 					'btnred',
 					'btngreen',
-					'btngray',
+					'btngray'
 				)
+			),
+			'thumbnail' => array(
+				'title'       => __( 'Thumbnail', $this->plugin_slug ),
+				'label'       => __( 'Show the featured image of the posts.', $this->plugin_slug ),
+				'default'     => '',
+				'type'        => 'checkbox',
+				'section'     => 'design',
+				'menu'        => $this->get_settings_name(),
+				'description' => __( 'Note: You must set a featured image for your posts.', $this->plugin_slug )
 			)
 		);
 
@@ -207,7 +215,7 @@ class Floating_NextPrev {
 	/**
 	 * Display the tabs.
 	 *
-	 * @since 2.0.0
+	 * @since 2.2.0
 	 *
 	 * @param  string $content Post or page content.
 	 *
