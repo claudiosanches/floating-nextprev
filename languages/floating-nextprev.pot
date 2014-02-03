@@ -1,41 +1,53 @@
-# Copyright (C) 2013 Floating NextPrev
+# Copyright (C) 2014 Floating NextPrev
 # This file is distributed under the same license as the Floating NextPrev package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Floating NextPrev 2.0.0\n"
+"Project-Id-Version: Floating NextPrev 2.2.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/floating-nextprev\n"
-"POT-Creation-Date: 2013-11-13 23:38:38+00:00\n"
+"POT-Creation-Date: 2014-02-03 23:50:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#. #-#-#-#-#  floating-nextprev.pot (Floating NextPrev 2.0.0)  #-#-#-#-#
+#. #-#-#-#-#  floating-nextprev.pot (Floating NextPrev 2.2.0)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
-#: admin/class-floating-nextprev-admin.php:116
-#: admin/class-floating-nextprev-admin.php:117
+#: admin/class-floating-nextprev-admin.php:114
+#: admin/class-floating-nextprev-admin.php:115
 msgid "Floating NextPrev"
 msgstr ""
 
-#: admin/class-floating-nextprev-admin.php:248
-msgid "Settings"
-msgstr ""
-
-#: public/class-floating-nextprev.php:119
+#: public/class-floating-nextprev.php:120
 msgid "Design"
 msgstr ""
 
-#: public/class-floating-nextprev.php:124
+#: public/class-floating-nextprev.php:125
 msgid "Model"
 msgstr ""
 
-#: public/class-floating-nextprev.php:220
+#: public/class-floating-nextprev.php:143
+msgid "Thumbnail"
+msgstr ""
+
+#: public/class-floating-nextprev.php:144
+msgid "Show the featured image of the posts."
+msgstr ""
+
+#: public/class-floating-nextprev.php:149
+msgid "Note: You must set a %s for your posts."
+msgstr ""
+
+#: public/class-floating-nextprev.php:149
+msgid "featured image"
+msgstr ""
+
+#: public/class-floating-nextprev.php:230
 msgid "Previous"
 msgstr ""
 
-#: public/class-floating-nextprev.php:221
+#: public/class-floating-nextprev.php:231
 msgid "Next"
 msgstr ""
 
