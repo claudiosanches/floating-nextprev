@@ -3,7 +3,7 @@
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** floating, navigation, jquery  
 **Requires at least:** 3.8  
-**Tested up to:** 3.9  
+**Tested up to:** 4.0  
 **Stable tag:** 2.2.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -84,10 +84,10 @@ Example:
 ## Screenshots ##
 
 ### 1. Plugin in action. ###
-![1. Plugin in action.](http://s.wordpress.org/extend/plugins/floating-nextprev/screenshot-1.png)
+![1. Plugin in action.](http://ps.w.org/floating-nextprev/assets/screenshot-1.png)
 
 ### 2. Plugin settings. ###
-![2. Plugin settings.](http://s.wordpress.org/extend/plugins/floating-nextprev/screenshot-2.png)
+![2. Plugin settings.](http://ps.w.org/floating-nextprev/assets/screenshot-2.png)
 
 
 ## Changelog ##

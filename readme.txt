@@ -3,7 +3,7 @@ Contributors: claudiosanches
 Donate link: http://claudiosmweb.com/doacoes/
 Tags: floating, navigation, jquery
 Requires at least: 3.8
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
