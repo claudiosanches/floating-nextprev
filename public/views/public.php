@@ -14,6 +14,7 @@ if ( ! defined( 'WPINC' ) ) die;
 ?>
 
 <div id="<?php echo $slug; ?>" class="style-<?php echo sanitize_text_field( $settings['model'] ); ?>">
+	<?php if ( $exists_prev_post ) : ?>
 	<div class="<?php echo $slug; ?>-prev <?php echo $slug; ?>-nav">
 		<a rel="prev" href="<?php echo get_permalink( $prev_post->ID ); ?>">
 			<div class="<?php echo $slug; ?>-arrow-left"></div>
@@ -24,6 +25,8 @@ if ( ! defined( 'WPINC' ) ) die;
 			</div>
 		</a>
 	</div>
+	<?php endif; ?>
+	<?php if ( $exists_next_post ) : ?>
 	<div class="<?php echo $slug; ?>-next <?php echo $slug; ?>-nav">
 		<a rel="next" href="<?php echo get_permalink( $next_post->ID ); ?>">
 			<div class="<?php echo $slug; ?>-arrow-right"></div>
@@ -34,4 +37,5 @@ if ( ! defined( 'WPINC' ) ) die;
 			</div>
 		</a>
 	</div>
+	<?php endif; ?>
 </div>
