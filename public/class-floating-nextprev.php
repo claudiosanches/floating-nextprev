@@ -231,6 +231,8 @@ class Floating_NextPrev {
 			$next_title          = apply_filters( $this->get_settings_name() . '_next_title', __( 'Next', $slug ) );
 			$prev_post           = get_previous_post( $in_same_cat, $excluded_categories );
 			$next_post           = get_next_post( $in_same_cat, $excluded_categories );
+			$exists_next_post = ( get_the_ID() !== $next_post->ID && ! is_null( $next_post->ID ) )? true : false ;
+			$exists_prev_post = ( get_the_ID() !== $prev_post->ID && ! is_null( $prev_post->ID ))? true : false ;
 
 			include_once 'views/public.php';
 		}
