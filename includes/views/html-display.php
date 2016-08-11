@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div id="floating-nextprev" class="style-<?php echo sanitize_text_field( $settings['model'] ); ?>">
+<div id="floating-nextprev" class="style-<?php echo esc_attr( $settings['model'] ); ?>">
 	<?php if ( isset( $prev_post->ID ) && $prev_post->ID !== get_the_ID() ) : ?>
 		<div class="floating-nextprev-prev floating-nextprev-nav">
 			<a rel="prev" href="<?php echo esc_url( get_permalink( $prev_post->ID ) ); ?>">

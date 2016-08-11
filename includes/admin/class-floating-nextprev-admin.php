@@ -74,10 +74,10 @@ class Floating_NextPrev_Admin {
 	public function update() {
 		if ( get_option( 'fnextprev_style' ) ) {
 			$settings = array(
-				'model' => get_option( 'fnextprev_style' )
+				'model' => get_option( 'fnextprev_style' ),
 			);
 
-			// Updates options
+			// Updates options.
 			update_option( 'floating_nextprev', $settings );
 
 			// Removes old options.
@@ -115,8 +115,6 @@ class Floating_NextPrev_Admin {
 	 * Plugin settings page.
 	 *
 	 * @since 2.0.0
-	 *
-	 * @return string
 	 */
 	public function settings_page() {
 		include_once dirname( __FILE__ ) . '/views/html-settings.php';
@@ -136,7 +134,7 @@ class Floating_NextPrev_Admin {
 		foreach ( $this->main_plugin->get_options() as $key => $value ) {
 
 			switch ( $value['type'] ) {
-				case 'section':
+				case 'section' :
 					add_settings_section(
 						$key,
 						$value['title'],
@@ -144,7 +142,7 @@ class Floating_NextPrev_Admin {
 						$value['menu']
 					);
 					break;
-				case 'model':
+				case 'model' :
 					add_settings_field(
 						$key,
 						$value['title'],
@@ -155,11 +153,11 @@ class Floating_NextPrev_Admin {
 							'menu'        => $value['menu'],
 							'id'          => $key,
 							'description' => isset( $value['description'] ) ? $value['description'] : '',
-							'options'     => $value['options']
+							'options'     => $value['options'],
 						)
 					);
 					break;
-				case 'checkbox':
+				case 'checkbox' :
 					add_settings_field(
 						$key,
 						$value['title'],
@@ -175,10 +173,9 @@ class Floating_NextPrev_Admin {
 					);
 					break;
 
-				default:
+				default :
 					break;
 			}
-
 		}
 
 		// Register settings.
@@ -190,9 +187,7 @@ class Floating_NextPrev_Admin {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param  array $args Field arguments.
-	 *
-	 * @return string      Radio field group with images.
+	 * @param array $args Field arguments.
 	 */
 	public function model_element_callback( $args ) {
 		$menu = $args['menu'];
@@ -226,9 +221,7 @@ class Floating_NextPrev_Admin {
 	 *
 	 * @since 2.2.0
 	 *
-	 * @param  array $args Field arguments.
-	 *
-	 * @return string      Checkbox field.
+	 * @param array $args Field arguments.
 	 */
 	public function checkbox_element_callback( $args ) {
 		$menu  = $args['menu'];
@@ -258,9 +251,9 @@ class Floating_NextPrev_Admin {
 	 *
 	 * @since 2.1.0
 	 *
-	 * @param  array $input options to valid.
+	 * @param  array $input Options to valid.
 	 *
-	 * @return array        validated options.
+	 * @return array        Validated options.
 	 */
 	public function validate_options( $input ) {
 		$output = array();

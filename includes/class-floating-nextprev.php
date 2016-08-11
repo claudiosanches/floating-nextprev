@@ -166,10 +166,6 @@ class Floating_NextPrev {
 	 * Display the tabs.
 	 *
 	 * @since 2.2.0
-	 *
-	 * @param  string $content Post or page content.
-	 *
-	 * @return string          Content with socialfblog buttons.
 	 */
 	public function view() {
 		if ( is_single() && apply_filters( 'floating_nextprev_display', true ) ) {
