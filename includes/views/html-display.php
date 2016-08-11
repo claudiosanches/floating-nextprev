@@ -2,11 +2,7 @@
 /**
  * Floating NextPrev view.
  *
- * @package   Floating_NextPrev
- * @author    Claudio Sanches <contato@claudiosmweb.com>
- * @license   GPL-2.0+
- * @link      https://github.com/claudiosmweb/floating-nextprev
- * @copyright 2013 Claudio Sanches
+ * @package Floating_NextPrev
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

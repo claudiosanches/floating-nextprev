@@ -1,19 +1,18 @@
 <?php
 /**
- * Floating NextPrev.
+ * Floating NextPrev admin.
  *
- * @package   Floating_NextPrev_Admin
- * @author    Claudio Sanches <contato@claudiosmweb.com>
- * @license   GPL-2.0+
- * @link      https://github.com/claudiosmweb/floating-nextprev
- * @copyright 2013 Claudio Sanches
+ * @package Floating_NextPrev
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 /**
  * Floating NextPrev Admin class.
  *
  * @package Floating_NextPrev_Admin
- * @author  Claudio Sanches <contato@claudiosmweb.com>
  */
 class Floating_NextPrev_Admin {
 

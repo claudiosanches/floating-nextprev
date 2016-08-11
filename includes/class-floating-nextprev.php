@@ -3,10 +3,11 @@
  * Floating NextPrev.
  *
  * @package Floating_NextPrev
- * @author  Claudio Sanches <contato@claudiosmweb.com>
- * @license GPL-2.0+
- * @link    https://github.com/claudiosmweb/floating-nextprev
  */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 /**
  * Floating NextPrev class.
