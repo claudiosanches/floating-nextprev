@@ -1,10 +1,10 @@
 # Floating NextPrev #
-**Contributors:** claudiosanches  
+**Contributors:** [claudiosanches](https://profiles.wordpress.org/claudiosanches)  
 **Donate link:** http://claudiosmweb.com/doacoes/  
 **Tags:** floating, navigation, jquery  
 **Requires at least:** 3.8  
-**Tested up to:** 4.0  
-**Stable tag:** 2.2.0  
+**Tested up to:** 4.6  
+**Stable tag:** 2.3.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -12,7 +12,7 @@ Displays icons for navigation between your posts so practical and fast.
 
 ## Description ##
 
-The Floating NextPrev displays buttons for navigation between your blog posts.  
+The Floating NextPrev displays buttons for navigation between your blog posts.
 The icons are displayed only within the pages of posts and can promote a better navigation for your visitors.
 
 #### Contribute ####
@@ -55,7 +55,7 @@ Use this example in `functions.php` file of your theme:
 
 ### How can I control the display? ###
 
-You can control the display using the `floating_nextprev_display` filter.  
+You can control the display using the `floating_nextprev_display` filter.
 Example how to display only in news category:
 
 	function floating_nextprev_only_in_news( $display ) {
@@ -66,7 +66,7 @@ Example how to display only in news category:
 
 ### How to change the "Previous" and "Next" titles? ###
 
-Use the `floating_nextprev_prev_title` and `floating_nextprev_next_title` filters.  
+Use the `floating_nextprev_prev_title` and `floating_nextprev_next_title` filters.
 Example:
 
 	function floating_nextprev_prev_title( $title ) {
@@ -84,46 +84,16 @@ Example:
 ## Screenshots ##
 
 ### 1. Plugin in action. ###
-![1. Plugin in action.](http://ps.w.org/floating-nextprev/assets/screenshot-1.png)
+![Plugin in action.](http://ps.w.org/floating-nextprev/assets/screenshot-1.png)
 
 ### 2. Plugin settings. ###
-![2. Plugin settings.](http://ps.w.org/floating-nextprev/assets/screenshot-2.png)
+![Plugin settings.](http://ps.w.org/floating-nextprev/assets/screenshot-2.png)
 
 
 ## Changelog ##
 
-### 2.2.0 - 03/02/2014 ###
+### 2.3.0 - 2016/08/10 ###
 
-* Added a option to display thumbnails.
-
-### 2.1.0 - 13/12/2013 ###
-
-* Fixed code standards.
-* Added support to WordPress 3.8.
-
-### 2.0.0 - 13/11/2013 ###
-
-* Refactored all code.
-* Improved the JavaScripts.
-* Improved the styles.
-* Added Brazilian Portuguese and English languages.
-
-### 1.2.0 ###
-
-* Fixed jQuery compatibility.
-
-### 1.1.0 ###
-
-* Fixed the plugin scripts.
-
-### 1.0.0 ###
-
-* Initial release.
+* Improved how check for the first and last pages in order to avoid wrong arrow buttons.
 
 ## License ##
-
-Floating NextPrev is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
-by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
-
-Floating NextPrev is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
