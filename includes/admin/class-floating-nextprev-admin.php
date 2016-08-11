@@ -2,7 +2,7 @@
 /**
  * Floating NextPrev admin.
  *
- * @package Floating_NextPrev
+ * @package Floating_NextPrev/Admin
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

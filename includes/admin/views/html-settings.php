@@ -2,7 +2,7 @@
 /**
  * Floating NextPrev settings view.
  *
- * @package Floating_NextPrev
+ * @package Floating_NextPrev/Admin/Views
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -13,6 +13,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="wrap">
 
 	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
+
+	<?php include dirname( __FILE__ ) . '/html-admin-help-message.php'; ?>
 
 	<form method="post" action="options.php">
 		<?php
