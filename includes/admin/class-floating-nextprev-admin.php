@@ -42,10 +42,7 @@ class Floating_NextPrev_Admin {
 	 * @since 2.1.0
 	 */
 	private function __construct() {
-
-		$this->main_plugin   = Floating_NextPrev::get_instance();
-		$this->plugin_slug   = $this->main_plugin->get_plugin_slug();
-		$this->settings_name = $this->main_plugin->get_settings_name();
+		$this->main_plugin = Floating_NextPrev::get_instance();
 
 		// Adds admin menu.
 		add_action( 'admin_menu', array( $this, 'menu' ) );
@@ -74,8 +71,6 @@ class Floating_NextPrev_Admin {
 	 * Makes upgrades of legacy versions.
 	 *
 	 * @since 2.1.0
-	 *
-	 * @return void
 	 */
 	public function update() {
 		if ( get_option( 'fnextprev_style' ) ) {
@@ -84,7 +79,7 @@ class Floating_NextPrev_Admin {
 			);
 
 			// Updates options
-			update_option( $this->settings_name, $settings );
+			update_option( 'floating_nextprev', $settings );
 
 			// Removes old options.
 			delete_option( 'fnextprev_style' );
@@ -98,7 +93,7 @@ class Floating_NextPrev_Admin {
 				}
 			}
 
-			add_option( $this->settings_name, $settings );
+			add_option( 'floating_nextprev', $settings );
 		}
 	}
 
@@ -106,15 +101,13 @@ class Floating_NextPrev_Admin {
 	 * Add plugin settings menu.
 	 *
 	 * @since 2.0.0
-	 *
-	 * @return void
 	 */
 	public function menu() {
 		add_options_page(
-			__( 'Floating NextPrev', $this->plugin_slug ),
-			__( 'Floating NextPrev', $this->plugin_slug ),
+			__( 'Floating NextPrev', 'floating-nextprev' ),
+			__( 'Floating NextPrev', 'floating-nextprev' ),
 			'manage_options',
-			$this->plugin_slug,
+			'floating-nextprev',
 			array( $this, 'settings_page' )
 		);
 	}
@@ -127,20 +120,17 @@ class Floating_NextPrev_Admin {
 	 * @return string
 	 */
 	public function settings_page() {
-		$settings_name = $this->settings_name;
-		include_once 'views/admin.php';
+		include_once dirname( __FILE__ ) . '/views/html-settings.php';
 	}
 
 	/**
 	 * Plugin settings form fields.
 	 *
 	 * @since 2.2.0
-	 *
-	 * @return void
 	 */
 	public function plugin_settings() {
 		// Create option in wp_options.
-		if ( false == get_option( $this->settings_name ) ) {
+		if ( false == get_option( 'floating_nextprev' ) ) {
 			$this->update();
 		}
 
@@ -193,7 +183,7 @@ class Floating_NextPrev_Admin {
 		}
 
 		// Register settings.
-		register_setting( $this->settings_name, $this->settings_name, array( $this, 'validate_options' ) );
+		register_setting( 'floating_nextprev', 'floating_nextprev', array( $this, 'validate_options' ) );
 	}
 
 	/**
@@ -219,7 +209,7 @@ class Floating_NextPrev_Admin {
 
 		$html = '';
 		foreach ( $args['options'] as $option ) {
-			$example = plugins_url( 'assets/images/' .  $option . '.png', __FILE__ );
+			$example = plugins_url( 'assets/images/admin/' .  $option . '.png', plugin_dir_path( dirname( __FILE__ ) ) );
 
 			$html .= sprintf( '<label style="display: block; margin-bottom: 5px;"><input type="radio" name="%2$s[%1$s]" value="%3$s"%4$s /> <img src="%5$s" style="vertical-align: middle;" /></label>', $id, $menu, $option, checked( $current, $option, false ), $example );
 		}

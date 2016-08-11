@@ -1,6 +1,6 @@
 <?php
 /**
- * Floating NextPrev administration view.
+ * Floating NextPrev settings view.
  *
  * @package   Floating_NextPrev_Admin
  * @author    Claudio Sanches <contato@claudiosmweb.com>
@@ -9,20 +9,19 @@
  * @copyright 2013 Claudio Sanches
  */
 
-// If this file is called directly, abort.
-if ( ! defined( 'WPINC' ) ) {
-	die;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
 }
 ?>
 
 <div class="wrap">
 
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	<h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
 
 	<form method="post" action="options.php">
 		<?php
-			settings_fields( $settings_name );
-			do_settings_sections( $settings_name );
+			settings_fields( 'floating_nextprev' );
+			do_settings_sections( 'floating_nextprev' );
 			submit_button();
 		?>
 	</form>
